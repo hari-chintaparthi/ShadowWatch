@@ -1,0 +1,26 @@
+# Core Django Web Framework
+Django==4.2.5
+
+# For ML Model loading and prediction
+scikit-learn==1.5.0
+joblib==1.4.2
+
+# For Data Analysis and Transformation
+pandas==2.2.2
+numpy==1.26.4
+
+# Web Requests (if you're analyzing URLs or fetching data)
+requests==2.31.0
+
+# Production WSGI server (required for deployment on Render)
+gunicorn==21.2.0
+
+# For rendering pretty forms (optional but common in Django apps)
+django-crispy-forms==2.1
+
+# If you’re using HTML templates with static CSS (default in Django)
+# No separate package required for HTMLCSS unless using Tailwind etc.
+
+# Optional To support environments that require database drivers like SQLite or PostgreSQL
+# Add below line only if needed (commented out)
+# psycopg2-binary==2.9.9    # Only if you're using PostgreSQL
