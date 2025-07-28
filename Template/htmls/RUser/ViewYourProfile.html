@@ -1,0 +1,113 @@
+{% extends 'RUser/design.html' %}
+{% block userblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Righteous&family=Fredoka+One&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        background-color: #000;
+        font-family: 'Orbitron', sans-serif;
+        color: #fff;
+    }
+
+    .container-fluid {
+        padding: 50px;
+    }
+
+    .container {
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px #00f7ff;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    td {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    td:first-child,
+    td:nth-child(3) {
+<!--        background: rgba(255, 0, 0, 0.85);-->
+<!--        color: #fff700;-->
+        font-weight: bold;
+        font-family: 'Fredoka One', cursive;
+<!--        border-radius: 6px 0 0 6px;-->
+<!--        box-shadow: inset 0 0 10px #ff0000;-->
+        background: #111;
+        color: #00f7ff;
+        border-radius: 0 6px 6px 0;
+        box-shadow: 0 0 10px #00f7ff inset;
+    }
+
+    td:nth-child(2),
+    td:nth-child(4) {
+        background: #111;
+        color: #00f7ff;
+        border-radius: 0 6px 6px 0;
+        box-shadow: 0 0 10px #00f7ff inset;
+    }
+
+    .style9 {
+        font-family: 'Righteous', cursive;
+        font-size: 16px;
+    }
+
+    tr {
+        transition: 0.3s ease;
+    }
+
+    tr:hover td {
+        background-color: rgba(255, 255, 255, 0.05);
+        transform: scale(1.01);
+    }
+</style>
+
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <table>
+                        <tr>
+                            <td>Username</td>
+                            <td>{{object.username}}</td>
+                            <td>Email Id</td>
+                            <td>{{object.email}}</td>
+                        </tr>
+                        <tr>
+                            <td>Mobile Number</td>
+                            <td>{{object.phoneno}}</td>
+                            <td>Gender</td>
+                            <td>{{object.gender}}</td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>{{object.address}}</td>
+                            <td>Country</td>
+                            <td>{{object.country}}</td>
+                        </tr>
+                        <tr>
+                            <td>State</td>
+                            <td>{{object.state}}</td>
+                            <td>City</td>
+                            <td>{{object.city}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-2">
+                    <!-- Empty column (optional content) -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

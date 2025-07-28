@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Malware URL Detection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=1650&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.75);
+            padding: 30px;
+            max-width: 600px;
+            margin: 100px auto;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #00ffff;
+        }
+
+        label {
+            display: block;
+            margin: 12px 0 6px;
+            font-weight: 600;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background-color: #222;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .btn-predict {
+            background: linear-gradient(to right, #00ffff, #00b3b3);
+            color: #000;
+        }
+
+        .btn-reset {
+            background: #ff4d4d;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px #00ffff88;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Malware URL Detection</h1>
+    <form action="{% url 'Predict_Detection_Type' %}" method="POST">
+        {% csrf_token %}
+        <label for="url">Enter URL</label>
+        <input type="text" id="url" name="url" placeholder="https://example.com" required>
+
+        <label for="length_url">URL Length</label>
+        <input type="number" id="length_url" name="length_url" placeholder="e.g., 55" required>
+
+        <label for="length_hostname">Hostname Length</label>
+        <input type="number" id="length_hostname" name="length_hostname" placeholder="e.g., 23" required>
+
+        <label for="https_token">HTTPS Token (0/1)</label>
+        <input type="number" id="https_token" name="https_token" min="0" max="1" required>
+
+        <label for="page_rank">Page Rank (0–10)</label>
+        <input type="number" id="page_rank" name="page_rank" placeholder="e.g., 3" required>
+
+        <div class="buttons">
+            <button type="submit" class="btn btn-predict">🔍 Predict</button>
+            <button type="reset" class="btn btn-reset">🔄 Reset</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

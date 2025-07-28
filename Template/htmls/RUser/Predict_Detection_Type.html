@@ -1,0 +1,183 @@
+{% extends 'RUser/design.html' %}
+{% block userblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+<link href="https://fonts.googleapis.com/css?family=Lobster|Righteous|Fredoka+One" rel="stylesheet">
+
+<style>
+	body {
+		background-color: #000;
+		color: #00ffff; /* Neon blue */
+		font-family: 'Righteous', cursive;
+
+	}
+	.container-fluid {
+		padding: 50px;
+	}
+	.container {
+        background-color: #111;
+		padding: 50px;
+		border-radius: 20px;
+		box-shadow: 0 0 40px rgba(0, 255, 255, 0.1);
+	}
+
+	#title {
+		font-family: 'Fredoka One', cursive;
+	}
+
+	.text-uppercase {
+		font-family: 'Righteous', cursive;
+	}
+
+	.tweettext {
+		border: 2px solid yellowgreen;
+		width: 904px;
+		height: 202px;
+		overflow: scroll;
+		background-color: rgba(0, 0, 0, 0.6);
+		color: white;
+		padding: 10px;
+		border-radius: 10px;
+	}
+
+	.style1 {
+		color: #00ffff; /* Neon blue */
+		font-weight: bold;
+		font-size: 28px;
+		text-align: center;
+		padding: 15px 25px;
+		margin-bottom: 20px;
+		border-radius: 20px;
+		background: rgba(0, 0, 0, 0.4); /* Translucent dark background */
+		backdrop-filter: blur(10px); /* Blur effect */
+		box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff; /* Glow */
+	}
+
+	.style6 {
+		font-size: 24px;
+		color: #00ffff;
+		font-weight: bold;
+	}
+
+	.style7 {
+		color: #00ffff;
+		font-weight: bold;
+	}
+
+	.style8 {
+		color: #ffff00;
+	}
+
+	.style10 {
+		color: #00FFFF;
+		font-weight: bold;
+	}
+
+	.style12 {
+		color: #00ffff;
+	}
+
+	table {
+		border-radius: 12px;
+<!--		overflow: hidden;-->
+	}
+
+	td {
+		padding: 10px;
+		font-size: 16px;
+		color: #00ffff;
+	}
+
+	input[type="text"] {
+		width: 100%;
+		padding: 10px;
+		border: none;
+		border-radius: 10px;
+		background-color: rgba(255, 255, 255, 0.05);
+		color: #00ffff;
+		box-shadow: 0 0 10px #00ffff;
+	}
+
+	input[type="submit"] {
+		background: linear-gradient(to right, #006666, #00cccc); /* Teal gradient */
+		color: white;
+		border: none;
+		padding: 10px 20px;
+		border-radius: 12px;
+		box-shadow: 0 0 12px #00ffff, inset 0 0 5px #ffffff55;
+		font-size: 18px;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	input[type="submit"]:hover {
+		background: linear-gradient(to right, #00cccc, #00ffff);
+		box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+		color: #fff;
+		text-decoration: underline;
+	}
+</style>
+
+<body>
+<div class="container-fluid">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5">
+				<form role="form" method="POST">
+					{% csrf_token %}
+					<fieldset>
+						<p class="text-uppercase pull-center style1">DRUG TO DRUG INTERACT PREDICTION !!!</p>
+						<hr>
+						<table width="568" align="center">
+							<tr>
+								<td height="44" bgcolor="#000000"><span class="style10">Enter url</span></td>
+								<td><input type = "text" name="url" cols="30" rows="10"></td>
+							</tr>
+							<tr>
+								<td height="44" bgcolor="#000000"><span class="style10">Enter length_url</span></td>
+								<td><input type="text" name="length_url"></td>
+							</tr>
+							<tr>
+								<td height="44" bgcolor="#000000"><span class="style10">Enter length_hostname</span></td>
+								<td><input type="text" name="length_hostname"></td>
+							</tr>
+							<tr>
+								<td height="44" bgcolor="#000000"><span class="style10">Enter https_token</span></td>
+								<td><input type="text" name="https_token"></td>
+							</tr>
+							<tr>
+								<td height="44" bgcolor="#000000"><span class="style10">Enter page_rank</span></td>
+								<td><input type="text" name="page_rank"></td>
+							</tr>
+							<tr>
+								<td width="287" height="44" bgcolor="#000000"></td>
+								<td width="269"><input name="submit" type="submit" class="style1" value="Predict"></td>
+							</tr>
+						</table>
+					</fieldset>
+				</form>
+
+				<form role="form" method="POST">
+					{% csrf_token %}
+					<fieldset>
+						<hr>
+						<table width="806" height="84" border="5" align="center" bordercolor="#111">
+							<tr>
+								<td width="493" bgcolor="#000000">
+									<div align="center"><span class="style8 style6"><span class="style12">Detection and Prediction Type</span></span> <span class="style7">::</span></div>
+								</td>
+								<td width="289" bgcolor="#000000">
+									<div align="center" class="style10">{{objs}}</div>
+								</td>
+							</tr>
+						</table>
+					</fieldset>
+				</form>
+			</div>
+			<div class="col-md-2">
+				<!-------null------>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
